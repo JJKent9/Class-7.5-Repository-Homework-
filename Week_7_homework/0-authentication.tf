@@ -11,12 +11,23 @@ terraform {
       source  = "hashicorp/google"
       version = "~> 5.0" 
     }
+    local = {
+      source  = "hashicorp/local"
+      version = "~> 2.0"
+    }
+
   }
 }
 
 provider "google" {
   project = "dusty-cloud-james-kent"
   region  = "us-central1"
+}
+
+resource "local_file" "favorite_food" {
+  content  = "Pizza is the best food in the world."
+  filename = "favorite_food.txt"
+  
 }
 
 
